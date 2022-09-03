@@ -20,6 +20,9 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
+// newly created component imports
+import MessageView from '../MessageView/MessageView';
+
 import './App.css';
 
 function App() {
@@ -111,6 +114,20 @@ function App() {
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
+          <Route
+            exact
+            path="/message"
+          >
+            {user.id ?
+              // If the user is already logged in, 
+              // redirect them to the /user page
+              <Redirect to="/user" />
+              :
+              // Otherwise, show the Landing page
+              <MessageView />
+            }
+          </Route>
+
           <Route>
             <h1>404</h1>
           </Route>
