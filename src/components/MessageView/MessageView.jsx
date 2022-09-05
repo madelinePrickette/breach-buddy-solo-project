@@ -1,7 +1,14 @@
 import './MessageView.css'
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { useEffect } from 'react';
+
+// socket.io-client imports
+import io from 'socket.io-client'
+const socket = io.connect('http://localhost:5000');
+// telling the client that it is okay to to connect with the server
+// server is runing on localhost:5000
+
+// Running this stuff on connnect
 
 function MessageView() {
 
