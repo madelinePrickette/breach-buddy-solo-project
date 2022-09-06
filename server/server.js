@@ -70,3 +70,7 @@ const PORT = process.env.PORT || 5000;
 server.listen( PORT, () => {
   console.log(`socket is listening on... ${PORT}` )
 });
+
+//io.on sets up connection
+//emit comes from server or client
+// queries are right in server

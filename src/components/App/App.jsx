@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 // newly created component imports
 import MessageView from '../MessageView/MessageView';
+import Dashboard from '../Dashboard/Dashboard';
 
 import './App.css';
 
@@ -73,7 +74,16 @@ function App() {
 
           {/* route to messages if logged in */}
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            // logged in shows Messages else shows LoginPage
+            exact
+            path="/message"
+          >
+            <MessageView />
+          </ProtectedRoute>
+
+          {/* route to Dashboard if logged in */}
+          <ProtectedRoute
+            // logged in shows Dashboard else shows LoginPage
             exact
             path="/message"
           >
