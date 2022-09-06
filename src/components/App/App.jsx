@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 
 // newly created component imports
 import MessageView from '../MessageView/MessageView';
+import Dashboard from '../Dashboard/Dashboard';
 
 import './App.css';
 
@@ -71,6 +72,24 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
+          {/* route to messages if logged in */}
+          <ProtectedRoute
+            // logged in shows Messages else shows LoginPage
+            exact
+            path="/message"
+          >
+            <MessageView />
+          </ProtectedRoute>
+
+          {/* route to Dashboard if logged in */}
+          <ProtectedRoute
+            // logged in shows Dashboard else shows LoginPage
+            exact
+            path="/message"
+          >
+            <MessageView />
+          </ProtectedRoute>
+
           <Route
             exact
             path="/login"
@@ -114,19 +133,6 @@ function App() {
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
-          <Route
-            exact
-            path="/message"
-          >
-            {user.id ?
-              // If the user is already logged in, 
-              // redirect them to the /user page
-              <Redirect to="/user" />
-              :
-              // Otherwise, show the Landing page
-              <MessageView />
-            }
-          </Route>
 
           <Route>
             <h1>404</h1>
