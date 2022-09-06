@@ -40,7 +40,7 @@ function Nav() {
             Dashboard
             </Link>
 
-            <Link className='navLink' to='/PROFILE'>
+            <Link className='navLink' to='/profile'>
             Profile
             </Link>
 
