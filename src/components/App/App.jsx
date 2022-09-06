@@ -23,6 +23,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 // newly created component imports
 import MessageView from '../MessageView/MessageView';
 import Dashboard from '../Dashboard/Dashboard';
+import Profile from '../Profile/Profile';
 
 import './App.css';
 
@@ -38,17 +39,15 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        <Nav /> 
+        {/* this is a component */}
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
-          <Route
-            // shows AboutPage at all times (logged in or not)
-            exact
-            path="/about"
-          >
+          <Route path="/about" exact >
+            {/* // shows AboutPage at all times (logged in or not) */}
             <AboutPage />
           </Route>
 
@@ -56,38 +55,32 @@ function App() {
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-          <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
-            exact
-            path="/user"
-          >
+          <ProtectedRoute path="/user" exact >
+            {/* // logged in shows UserPage else shows LoginPage */}
             <UserPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
+          <ProtectedRoute path="/info" exact >
+            {/* // logged in shows InfoPage else shows LoginPage */}
             <InfoPage />
           </ProtectedRoute>
 
           {/* route to messages if logged in */}
-          <ProtectedRoute
-            // logged in shows Messages else shows LoginPage
-            exact
-            path="/message"
-          >
+          <ProtectedRoute path="/message" exact>
+            {/* // logged in shows Messages else shows LoginPage */}
             <MessageView />
           </ProtectedRoute>
 
           {/* route to Dashboard if logged in */}
-          <ProtectedRoute
-            // logged in shows Dashboard else shows LoginPage
-            exact
-            path="/message"
-          >
-            <MessageView />
+          <ProtectedRoute path="/dashboard" exact >
+            {/* // logged in shows Dashboard else shows LoginPage */}
+            <Dashboard />
+          </ProtectedRoute>
+
+          {/* route to Dashboard if logged in */}
+          <ProtectedRoute path="/profile" exact >
+            {/* // logged in shows Dashboard else shows LoginPage */}
+            <Profile />
           </ProtectedRoute>
 
           <Route
