@@ -36,6 +36,14 @@ function Nav() {
             Messages
             </Link>
 
+            <Link className='navLink' to='/dashboard'>
+            Dashboard
+            </Link>
+
+            <Link className='navLink' to='/PROFILE'>
+            Profile
+            </Link>
+
             <LogOutButton className="navLink" />
           </>
         )}
