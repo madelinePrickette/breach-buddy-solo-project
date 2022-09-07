@@ -39,6 +39,8 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const messageRouter = require('./routes/message.router');
 const profileRouter = require('./routes/profile.router');
+const attackerDropdownRouter = require('./routes/attacker.router');
+const defenderDropdownRouter = require('./routes/defender.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -55,6 +57,8 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/message', messageRouter);
 app.use('/api/profile', profileRouter);
+app.use('/api/attackerdata', attackerDropdownRouter)
+app.use('/api/defenderdata', defenderDropdownRouter)
 
 // Serve static files
 app.use(express.static('build'));

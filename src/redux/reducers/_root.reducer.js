@@ -3,6 +3,8 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import messageReducer from './message.reducer';
 import profileReducer from './profile.reducer';
+import attackerReducer from './attacker.reducer';
+import defenderReducer from './defender.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,6 +17,8 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   messageReducer,
   profileReducer,
+  attackerReducer,
+  defenderReducer,
 });
 
 export default rootReducer;
