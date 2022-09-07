@@ -43,10 +43,42 @@ router.get('/', (req, res) => {
 });
 
 /**
- * POST route template
+ * PUT route template
  */
-router.post('/', (req, res) => {
-  // POST route code here
+router.put('/', (req, res) => {
+  // PUT route code here
+  const queryText =
+  `
+  UPDATE "user"
+  SET "picture" = $1,
+      "discord" = $2,
+      "attacker_id" = $3,
+      "defender_id" = $4,
+      "rank_id" = $5,
+      "gamemode_id" = $6,
+      "availability" = $7,
+      "bio" = $8
+  WHERE "id" = $9
+  `;
+  const queryValues = [
+    req.body.picture, 
+    req.body.discord, 
+    req.body.attacker_id,
+    req.body.defender_id,
+    req.body.rank_id,
+    req.body.gamemode_id,
+    req.body.availability,
+    req.body.bio,
+    req.user.id
+  ];
+  pool.query(queryText, queryValues)
+  .then( (result) => {
+    res.sendStatus(200);
+  }).catch( (err) => {
+    console.log('Error in profile.router.js', err)
+    res.sendStatus(500);
+  })
+  
 });
 
 module.exports = router;
