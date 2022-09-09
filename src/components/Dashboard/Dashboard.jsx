@@ -30,7 +30,7 @@ function Dashboard() {
             {friends[0] ?
             <ul>
             {friends.map( (friend) => 
-                <UserItem friend={friend}/>
+                <UserItem key={friend.user_id_1} friend={friend}/>
             )}
             </ul>
             :

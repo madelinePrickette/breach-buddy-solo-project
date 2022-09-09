@@ -1,5 +1,6 @@
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from'react-redux';
+import userDetails from '../UserDetails/UserDetails';
 
 function UserItem({friend}) {
 
@@ -7,7 +8,7 @@ function UserItem({friend}) {
     const history = useHistory();
 
     const handleFriendClick = () => {
-        history.push(`/UserDetails/${friend.user_id_1}`);
+        history.push(`/userdetails/${friend.user_id_1}`);
 
         dispatch({
             type: 'FETCH_OTHER_PROFILE',

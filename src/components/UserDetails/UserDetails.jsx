@@ -1,23 +1,18 @@
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-function OtherUser() {
+function UserDetails() {
 
-    UseEffect(() => {
-        getOtherUser();
-    })
+    const otherUser = useSelector(state => state.otherUserReducer)
 
-    const dispatch = useDispatch();
-    
-    const getOtherUser = () => {
-        console.log('in get other user function...');
-    }
-
+    console.log(otherUser);
     return(
         <>
             <h3>Other User's Profile</h3>
+                <img src={otherUser.picture}></img>
+                <p>{otherUser.username}</p>
         </>
     )
 }
 
-export default OtherUser;
+export default UserDetails;

@@ -24,7 +24,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import MessageView from '../MessageView/MessageView';
 import Dashboard from '../Dashboard/Dashboard';
 import Profile from '../Profile/Profile';
-import UserDetails from '../UserItem/UserItem';
+import UserDetails from '../UserDetails/UserDetails';
 
 import './App.css';
 
@@ -85,7 +85,7 @@ function App() {
           </ProtectedRoute>
 
           {/* route to other user page if logged in */}
-          <ProtectedRoute path="/profile" exact >
+          <ProtectedRoute path="/userdetails/:id" exact >
             {/* // logged in shows other user page else shows LoginPage */}
             <UserDetails />
           </ProtectedRoute>
