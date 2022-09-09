@@ -25,6 +25,7 @@ import MessageView from '../MessageView/MessageView';
 import Dashboard from '../Dashboard/Dashboard';
 import Profile from '../Profile/Profile';
 import UserDetails from '../UserDetails/UserDetails';
+import Search from '../Search/Search';
 
 import './App.css';
 
@@ -90,6 +91,10 @@ function App() {
             <UserDetails />
           </ProtectedRoute>
 
+          {/* route to other user page if logged in */}
+          <ProtectedRoute path="/search" exact >
+            <Search />
+          </ProtectedRoute>
 
           <Route
             exact
