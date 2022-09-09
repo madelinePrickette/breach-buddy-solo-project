@@ -4,25 +4,32 @@ import './UserDetails.css';
 
 function UserDetails() {
 
-    const otherUser = useSelector(state => state.otherUserReducer)
-    const [friend, setFriend] = useState(false)
+    const otherUser = useSelector(store => store.otherUserReducer)
+    const [isFriend, setIsFriend] = useState(false)
+    const friendsList = useSelector(store => store.friendsReducer)
 
     useEffect(() => {
         friendCheck();
     })
 
     const friendCheck = () => {
-
+        friendsList.map((friend) => {
+            if(friend.user_id_2 === otherUser.id){
+                console.log(friend.user_id_2)
+            } else {
+                console.log(otherUser)
+            }
+        })
     }
 
     const handleFriendClick = () => {
         console.log('you and', otherUser.username, 'are now friends')
-        setFriend(!friend);
+        setIsFriend(!isFriend);
     }
 
     const handleUnfriendClick = () => {
         console.log('you unfriended', otherUser.username)
-        setFriend(!friend);
+        setIsFriend(!isFriend);
     }
 
     console.log(otherUser);
@@ -31,11 +38,11 @@ function UserDetails() {
 
     // loop thru friendsReducer
     // if user_id_1 === myid AND user_id_2 === otherUser.id
-
+    
 
     return(
         <>
-            {!friend ?
+            {!isFriend ?
                 <button onClick={handleFriendClick}>Friend</button>
             :
                 <button onClick={handleUnfriendClick}>Unfriend</button>

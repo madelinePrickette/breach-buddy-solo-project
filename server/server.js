@@ -43,6 +43,7 @@ const attackerDropdownRouter = require('./routes/attacker.router');
 const defenderDropdownRouter = require('./routes/defender.router');
 const friendsRouter = require('./routes/friends.router');
 const otherProfileRouter = require('./routes/other.profile.router');
+const searchRouter = require('./routes/search.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -63,6 +64,7 @@ app.use('/api/attackerdata', attackerDropdownRouter)
 app.use('/api/defenderdata', defenderDropdownRouter)
 app.use('/api/friends', friendsRouter);
 app.use('/api/otherProfile', otherProfileRouter)
+app.use('/api/search', searchRouter);
 
 // Serve static files
 app.use(express.static('build'));

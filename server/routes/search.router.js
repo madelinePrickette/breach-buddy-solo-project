@@ -7,12 +7,15 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   // GET route code here
-  const queryValues =
+  const queryText =
   `
-  SELECT * FROM "user";
+  SELECT * FROM "user"
+  WHERE "user".id != $1;
   `;
 
-  pool.query(queryValues)
+  const queryValues = [req.user.id];
+
+  pool.query(queryText, queryValues)
   .then( (result) => { //result will always be an array
     res.send(result.rows);
   }).catch( (err) => {

@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
+import SearchItem from '../SearchItem/SearchItem';
 
 function Search() {
 
@@ -10,7 +11,7 @@ function Search() {
 
     const dispatch = useDispatch();
     const history = useHistory();
-    const search = useSelector(state => state.searchReducer);
+    const search = useSelector(state => state.allUsersReducer);
 
     const getSearch = () => {
         //console.log('getting friends...')
@@ -27,7 +28,7 @@ function Search() {
             <h3>Search Result:</h3>
             <ul>
             {search.map( (searchItem) => 
-                <SearchItem searchItem={searchItem}/>
+                <SearchItem key={searchItem.id} searchItem={searchItem}/>
             )}
             </ul>
         </>
