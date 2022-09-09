@@ -24,6 +24,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import MessageView from '../MessageView/MessageView';
 import Dashboard from '../Dashboard/Dashboard';
 import Profile from '../Profile/Profile';
+import UserDetails from '../UserItem/UserItem';
 
 import './App.css';
 
@@ -77,11 +78,18 @@ function App() {
             <Dashboard />
           </ProtectedRoute>
 
-          {/* route to Dashboard if logged in */}
+          {/* route to Profile if logged in */}
           <ProtectedRoute path="/profile" exact >
             {/* // logged in shows Dashboard else shows LoginPage */}
             <Profile />
           </ProtectedRoute>
+
+          {/* route to other user page if logged in */}
+          <ProtectedRoute path="/profile" exact >
+            {/* // logged in shows other user page else shows LoginPage */}
+            <UserDetails />
+          </ProtectedRoute>
+
 
           <Route
             exact
