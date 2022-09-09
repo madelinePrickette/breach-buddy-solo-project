@@ -5,6 +5,7 @@ import messageReducer from './message.reducer';
 import profileReducer from './profile.reducer';
 import attackerReducer from './attacker.reducer';
 import defenderReducer from './defender.reducer';
+import friendsReducer from './friends.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   profileReducer,
   attackerReducer,
   defenderReducer,
+  friendsReducer,
 });
 
 export default rootReducer;

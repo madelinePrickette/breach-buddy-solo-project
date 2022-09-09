@@ -12,8 +12,19 @@ function* fetchProfile() {
     }
 }
 
+function* saveProfile(action) {
+    try{
+        console.log('in saveProfile')
+        yield axios.put('/api/profile', action.payload)
+        yield put({type: 'FETCH_PROFILE'})
+    }catch(err){
+        console.log('Error in saveProfile function profile.saga.js', err)
+    }
+}
+
 function* profileSaga() {
     yield takeEvery ('FETCH_PROFILE', fetchProfile);
+    yield takeEvery ('SAVE_PROFILE', saveProfile);
 }
 
 export default profileSaga;

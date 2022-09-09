@@ -17,16 +17,26 @@ function Profile() {
     const defenders = useSelector(store => store.defenderReducer);
 
     //We will send this package into the server.
+    const [profileInfo, setProfileInfo] = useState({
+        picture:'', 
+        availability: '', 
+        bio:'', 
+        discord:'', 
+        attacker_id:'', 
+        defender_id:'', 
+        gamemode_id:'', 
+        rank_id:''
+    })
 
-    //Captured values
-    const [url, setUrl] = useState('');
-    const [rank, setRank] = useState('');
-    const [attacker, setAttacker] = useState('');
-    const [defender, setDefender] = useState('');
-    const [gamemode, setGamemode] = useState('');
-    const [availability, setAvailability] = useState('');
-    const [discord, setDiscord] = useState('');
-    const [bio, setBio] = useState('');
+    //Captured values -- no longer used
+    // const [url, setUrl] = useState('');
+    // const [rank, setRank] = useState('');
+    // const [attacker, setAttacker] = useState('');
+    // const [defender, setDefender] = useState('');
+    // const [gamemode, setGamemode] = useState('');
+    // const [availability, setAvailability] = useState('');
+    // const [discord, setDiscord] = useState('');
+    // const [bio, setBio] = useState('');
 
     const fetchProfile = () => {
         console.log('is this working'); //yes
@@ -36,18 +46,21 @@ function Profile() {
     }
 
     const [editing, setEditing] = useState(false)
-    const handleEditClick = () => {
+    const handleEditClick = (event) => {
+        event.preventDefault();
         setEditing(!editing);
     }
 
      //capture URL input
      const handlePicUrlInput = (event) => {
-        setUrl(event.target.value)
+        //setUrl(event.target.value)
+        setProfileInfo({...profileInfo, picture: event.target.value})
     }
 
     //rank selection capture
     const handleRankSelection = (event) => {
-        setRank(event.target.value)
+        //setRank(event.target.value)
+        setProfileInfo({...profileInfo, rank_id: event.target.value})
     }
 
     //getting the attackers from the db
@@ -63,7 +76,8 @@ function Profile() {
         })
     }
     const handleAttackerSelection = (event) => {
-        setAttacker(event.target.value);
+        //setAttacker(event.target.value);
+        setProfileInfo({...profileInfo, attacker_id: event.target.value})
     }
 
     //getting the defenders from the db
@@ -79,41 +93,57 @@ function Profile() {
             })
     }
     const handleDefenderSelection = (event) => {
-        setDefender(event.target.value);
+        //setDefender(event.target.value);
+        setProfileInfo({...profileInfo, defender_id: event.target.value})
     }
 
     //gamemode selection capture
     const handleGamemodeSelection = (event) => {
-        setGamemode(event.target.value)
+        //setGamemode(event.target.value)
+        setProfileInfo({...profileInfo, gamemode_id: event.target.value})
     }
 
     //availability input capture
     const handleAvailabilityInput = (event) => {
-        setAvailability(event.target.value);
+        //setAvailability(event.target.value);
+        setProfileInfo({...profileInfo, availability: event.target.value})
     }
 
     //discord input capture
     const handleDiscordInput = (event) => {
-        setDiscord(event.target.value);
+        //setDiscord(event.target.value);
+        setProfileInfo({...profileInfo, discord: event.target.value})
     }
 
     //bio text capture
     const handleBioInput = (event) => {
-        setBio(event.target.value);
+        //setBio(event.target.value);
+        setProfileInfo({...profileInfo, bio: event.target.value})
     }
 
-    console.log('your url:', url);
-    console.log('the rank you chose:', rank);
-    console.log('the attacker you chose:', attacker);
-    // console.log('the attackers:', attackers);
-    console.log('the defender you chose:', defender);
-    // console.log(defenders);
-    console.log('the gamemode you chose:', gamemode);
-    console.log('your availability:', availability);
-    console.log('your discord:', discord);
-    console.log('your bio:', bio)
+    // console.log('your url:', url);
+    // console.log('the rank you chose:', rank);
+    // console.log('the attacker you chose:', attacker);
+    // // console.log('the attackers:', attackers);
+    // console.log('the defender you chose:', defender);
+    // // console.log(defenders);
+    // console.log('the gamemode you chose:', gamemode);
+    // console.log('your availability:', availability);
+    // console.log('your discord:', discord);
+    // console.log('your bio:', bio)
     // console.log('clicked edit', editing);
     // console.log('THIS IS YOUR PROFILE INFO:', profile);
+
+    const handleSaveClick = (event) => {
+        event.preventDefault();
+        console.log('your profile:', profileInfo);
+
+        dispatch({
+            type: 'SAVE_PROFILE',
+            payload: profileInfo
+        })
+        setEditing(!editing);
+    }
 
     return (
         <>
@@ -121,7 +151,7 @@ function Profile() {
             <>
                 {editing ?
                     <>
-                        <button onClick={handleEditClick}>Save</button>
+                        <button onClick={handleSaveClick}>Save</button>
                         <input placeholder="picture url" onChange={handlePicUrlInput}/>
                         <select onChange={handleRankSelection}>
                             <option>Select a rank</option>
@@ -157,7 +187,7 @@ function Profile() {
                         <input placeholder="availability" onChange={handleAvailabilityInput}/>
                         <input placeholder="discord name and #" onChange={handleDiscordInput}/>
                         <label htmlFor='bio'>Bio:</label>
-                        <textarea name='bio'></textarea>
+                        <textarea name='bio' onChange={handleBioInput}></textarea>
                     </>
                     :
                     <>
