@@ -7,10 +7,9 @@ function* fetchOtherProfile(action) {
         let response = yield axios.get(`/api/otherProfile/${action.payload.id}`)
         yield put({type: 'SET_OTHER_PROFILE', payload: response.data})
     }catch(err){
-        console.log('Error in fetchUsersProfile function other.user.saga.js', err)
+        console.log('Error in fetchOtherProfile function other.user.saga.js', err)
     }
 }
-
 
 function* otherUserSaga() {
     yield takeEvery ('FETCH_OTHER_PROFILE', fetchOtherProfile);

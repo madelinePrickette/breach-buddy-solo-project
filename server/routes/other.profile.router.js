@@ -12,6 +12,7 @@ router.get('/:id', (req, res) => {
   const queryText = 
   `
   SELECT "user".username,
+  "user".id,
   "user".picture, 
   "user".availability, 
   "user".bio, 

@@ -21,9 +21,24 @@ function* deleteFriend(action) {
     }
 }
 
+function* addAsFriend(action) {
+    // I dont know what reducer file this function should be in or if it matters.
+    // This person isnt a friend yet but once they are, i think we should refresh friends
+    // therefore FETCH_FRIENDS would need to be called so I put this here...
+    
+    try{
+        console.log('in addAsFriend')
+        yield axios.post(`/api/friends/${action.payload}`)
+        yield put({type: 'FETCH_FRIENDS'})
+    }catch(err){
+        console.error('Error in addAsFriend function in other.user.saga.js', err)
+    }
+}
+
 function* friendsSaga() {
-    yield takeEvery ('FETCH_FRIENDS', fetchFriends)
+    yield takeEvery ('FETCH_FRIENDS', fetchFriends);
     yield takeEvery ('DELETE_FRIEND', deleteFriend);
+    yield takeEvery ('ADD_AS_FRIEND', addAsFriend);
 }
 
 export default friendsSaga;
