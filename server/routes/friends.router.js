@@ -29,8 +29,27 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/:id', (req, res) => {
   // POST route code here
+  const myId = req.user.id
+  const otherUsersId = req.params.id
+
+  const queryText = 
+  `
+  INSERT INTO "user_user" (user_id_1, user_id_2)
+  VALUES ($1, $2),
+  ($3, $4);
+  `;
+
+  const queryValues = [otherUsersId, myId, myId, otherUsersId];
+
+  pool.query(queryText, queryValues)
+  .then( (result) => {
+    res.sendStatus(201);
+  }).catch( (err) => {
+    console.error('error in router.post in friends.router.js', err)
+    res.sendStatus(500);
+  })
 });
 
 /**
