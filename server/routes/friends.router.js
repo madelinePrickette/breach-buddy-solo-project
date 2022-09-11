@@ -33,4 +33,29 @@ router.post('/', (req, res) => {
   // POST route code here
 });
 
+/**
+ * DELETE route template
+ */
+router.delete('/:id', (req, res) => {
+  // DELETE route code here
+  const myId = req.user.id
+  const friendId = req.params.id
+  
+  const queryText =
+  `
+  DELETE FROM "user_user"
+  WHERE ("user_id_1" = $1 OR "user_id_1" = $2) AND ("user_id_2" = $3 OR "user_id_2" = $4);
+  `;
+
+  const queryValues = [friendId, myId, myId, friendId];
+
+  pool.query(queryText, queryValues)
+  .then( (result) => {
+    res.sendStatus(200);
+  }).catch( (err) => {
+    console.error('error in friends.router.js router.delete', err)
+    res.sendStatus(500);
+  });
+});
+
 module.exports = router;
