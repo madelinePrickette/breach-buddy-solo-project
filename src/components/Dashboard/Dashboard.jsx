@@ -39,7 +39,11 @@ function Dashboard() {
         <>
             <h3>Dashboard</h3>
             <h3>List of friends:</h3>
+            {editing?
+            <button onClick={handleEditClick}>Done</button>
+            :
             <button onClick={handleEditClick}>Edit</button>
+            }
             {friends[0] ?
             <ul>
             {friends.map( (friend) => 
