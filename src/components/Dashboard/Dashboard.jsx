@@ -13,6 +13,7 @@ function Dashboard() {
     const dispatch = useDispatch();
     const history = useHistory();
     const friends = useSelector(state => state.friendsReducer);
+    const [editing, setEditing] = useState(false)
 
     const getFriends = () => {
         //console.log('getting friends...')
@@ -22,15 +23,27 @@ function Dashboard() {
         })
     }
 
+    const handleEditClick = () => {
+        //console.log('edit clicked');
+        setEditing(!editing);
+    }
+
+    {editing?
+        console.log('delete buttons are showing, edit status is:', editing)
+        :
+        console.log('buttons are hidden, editing status is:', editing);
+    }
+
     console.log('friends:', friends);
     return(
         <>
             <h3>Dashboard</h3>
             <h3>List of friends:</h3>
+            <button onClick={handleEditClick}>Edit</button>
             {friends[0] ?
             <ul>
             {friends.map( (friend) => 
-                <UserItem friend={friend}/>
+                <UserItem key={friend.user_id_1} friend={friend} editing={editing}/>
             )}
             </ul>
             :

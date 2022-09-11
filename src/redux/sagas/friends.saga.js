@@ -11,8 +11,19 @@ function* fetchFriends() {
     }
 }
 
+function* deleteFriend(action) {
+    try{
+        console.log('in deleteFriend');
+        yield axios.delete(`/api/friends/${action.payload}`)
+        yield put({type: 'FETCH_FRIENDS'})
+    }catch(err){
+        console.error('Error in friends.saga.js deleteFriend function', err)
+    }
+}
+
 function* friendsSaga() {
     yield takeEvery ('FETCH_FRIENDS', fetchFriends)
+    yield takeEvery ('DELETE_FRIEND', deleteFriend);
 }
 
 export default friendsSaga;

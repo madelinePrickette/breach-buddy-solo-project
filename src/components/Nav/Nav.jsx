@@ -44,6 +44,10 @@ function Nav() {
             Profile
             </Link>
 
+            <Link className='navLink' to='/search'>
+            Find A Friend
+            </Link>
+
             <LogOutButton className="navLink" />
           </>
         )}

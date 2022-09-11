@@ -5,6 +5,8 @@ import userSaga from './user.saga';
 import messageSaga from './message.saga';
 import profileSaga from './profile.saga';
 import friendsSaga from './friends.saga';
+import otherUserSaga from './other.user.saga';
+import allUsersSaga from './all.users.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +23,7 @@ export default function* rootSaga() {
     messageSaga(),
     profileSaga(),
     friendsSaga(),
+    otherUserSaga(),
+    allUsersSaga(),
   ]);
 }
