@@ -1,3 +1,10 @@
 .inline{
     display: inline;
 }
+
+.body-text {
+    color:rgb(232, 232, 232);
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+}
+

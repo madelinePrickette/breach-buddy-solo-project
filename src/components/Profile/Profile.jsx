@@ -196,14 +196,14 @@ function Profile() {
                             <>
                                 <br></br>
                                 <img src={profile[0].picture} className="pfp"></img>
-                                <p className="body-text-color">Rank: {profile[0].rank_name}</p>
-                                <h2 className="body-text-color">{profile[0].username}</h2>
-                                <p className="body-text-color">Attacker: {profile[0].attacker_name}</p>
-                                <p className="body-text-color">Defender: {profile[0].defender_name}</p>
-                                <p className="body-text-color">Gamemode: {profile[0].gamemode_name}</p>
-                                <p className="body-text-color">Availability: {profile[0].availability}</p>
-                                <p className="body-text-color">Discord: {profile[0].discord}</p>
-                                <p className="body-text-color">Bio: {profile[0].bio}</p>
+                                <p className="body-text">Rank: {profile[0].rank_name}</p>
+                                <h2 className="body-text">{profile[0].username}</h2>
+                                <p className="body-text">Attacker: {profile[0].attacker_name}</p>
+                                <p className="body-text">Defender: {profile[0].defender_name}</p>
+                                <p className="body-text">Gamemode: {profile[0].gamemode_name}</p>
+                                <p className="body-text">Availability: {profile[0].availability}</p>
+                                <p className="body-text">Discord: {profile[0].discord}</p>
+                                <p className="body-text">Bio: {profile[0].bio}</p>
                             </>
                             :
                             <>

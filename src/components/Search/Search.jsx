@@ -24,9 +24,9 @@ function Search() {
     console.log('Search result:', search);
     return(
         <>
-            <h3>Find a Potential Friend!</h3>
-            <h3>Search Result:</h3>
-            <ul>
+            <h3 className='body-text'>Find a Potential Friend!</h3>
+            <h3 className='body-text'>Search Result:</h3>
+            <ul className='no-bull'>
             {search.map( (searchItem) => 
                 <SearchItem key={searchItem.id} searchItem={searchItem}/>
             )}

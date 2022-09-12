@@ -1,0 +1,9 @@
+.body-text {
+    color:rgb(232, 232, 232);
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+.no-bull {
+    list-style: none;
+}

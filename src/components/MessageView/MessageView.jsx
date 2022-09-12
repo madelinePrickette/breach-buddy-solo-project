@@ -51,7 +51,7 @@ function MessageView() {
                 {/* {JSON.stringify(messages)} */}
                 <ul>
                     {messages.map( (obj) => (
-                        <li key={obj.id}>{obj.message}</li>
+                        <li key={obj.id} className='body-text no-bull'>{obj.message}</li>
                     ))}
                 </ul>
             </div>

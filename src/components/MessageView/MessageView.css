@@ -2,5 +2,19 @@
     height: 300px;
     width: 400px;
     border: black 1px solid;
+    background-color: rgba(240, 248, 255, .15);
 }
 
+.inline-block {
+    display: inline-block;
+}
+
+.body-text {
+    color:rgb(232, 232, 232);
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+.no-bull{
+    list-style: none;
+}

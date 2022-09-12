@@ -37,15 +37,15 @@ function Dashboard() {
     console.log('friends:', friends);
     return(
         <>
-            <h3>Dashboard</h3>
-            <h3>List of friends:</h3>
+            <h3 className='body-text'>Dashboard</h3>
+            <h3 className='body-text'>List of friends:</h3>
             {editing?
             <button onClick={handleEditClick}>Done</button>
             :
             <button onClick={handleEditClick}>Edit</button>
             }
             {friends[0] ?
-            <ul>
+            <ul className='no-bull'>
             {friends.map( (friend) => 
                 <UserItem key={friend.user_id_1} friend={friend} editing={editing}/>
             )}
