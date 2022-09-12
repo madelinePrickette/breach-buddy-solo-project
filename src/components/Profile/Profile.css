@@ -1,3 +1,13 @@
 .pfp {
-    height: 200px;
+    max-width: 250px;
+    border-radius: 50%;
+    border: 2px rgb(232, 232, 232) solid;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.body-text-color {
+    color:rgb(232, 232, 232);
 }

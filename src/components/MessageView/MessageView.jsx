@@ -44,7 +44,7 @@ function MessageView() {
     }
 
     return(
-        <>
+        <div className="black-tri">
             <h3>Message View</h3>
 
             <div id="message-box">
@@ -61,7 +61,7 @@ function MessageView() {
 
             <input placeholder="room"/>
             <button>Join</button>
-        </>
+        </div>
         
     )
 }

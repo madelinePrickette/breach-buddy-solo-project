@@ -3,28 +3,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   margin: 0 0 30px;
-  background-color: #00acb0;
   overflow: hidden;
 }
 
 .nav a {
   text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
 }
 
 .nav-title {
-  font-size: 24px;
+  font-size: 60px;
   font-weight: 700;
   color: #f2f2f2;
   padding-left: 10px;
   margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-style: italic;
 }
 
 .navLink {
   display: inline-block;
   color: #f2f2f2;
-  background-color: #00acb0;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -38,5 +39,7 @@
 }
 
 .navLink:hover {
-  background-color: #008183;
+  background-color: #46ADE0;
+  color: black;
+  filter: drop-shadow(0 0 0.90rem black);
 }
