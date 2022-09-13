@@ -21,10 +21,20 @@ function Search() {
         })
     }
 
+    const handleRankFilter = (event) => {
+        event.preventDefault();
+        console.log()
+    }
+
     console.log('Search result:', search);
     return(
         <>
             <h3 className='body-text'>Find a Potential Friend!</h3>
+            <form onSubmit={handleRankFilter}>
+                <select>
+                    <option></option>
+                </select>
+            </form>
             <h3 className='body-text'>Search Result:</h3>
             <ul className='no-bull'>
             {search.map( (searchItem) => 
