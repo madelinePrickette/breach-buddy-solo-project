@@ -146,8 +146,7 @@ function Profile() {
     }
 
     return (
-        <>
-            <h3>Profile</h3>
+        <div className='container'>
             <>
                 {editing ?
                     <>
@@ -191,19 +190,19 @@ function Profile() {
                     </>
                     :
                     <>
-                        <button onClick={handleEditClick}>Edit</button>
+                        <button onClick={handleEditClick} className="item-edit">Edit</button>
                         {profile[0] ?
                             <>
                                 <br></br>
-                                <img src={profile[0].picture} className="pfp"></img>
-                                <p className="body-text">Rank: {profile[0].rank_name}</p>
-                                <h2 className="body-text">{profile[0].username}</h2>
-                                <p className="body-text">Attacker: {profile[0].attacker_name}</p>
-                                <p className="body-text">Defender: {profile[0].defender_name}</p>
-                                <p className="body-text">Gamemode: {profile[0].gamemode_name}</p>
-                                <p className="body-text">Availability: {profile[0].availability}</p>
-                                <p className="body-text">Discord: {profile[0].discord}</p>
-                                <p className="body-text">Bio: {profile[0].bio}</p>
+                                <img src={profile[0].picture} className="pfp item-pic"></img>
+                                <p className="body-text item-rank">Rank: {profile[0].rank_name}</p>
+                                <h1 className="body-text item-username">{profile[0].username}</h1>
+                                <p className="body-text item-attacker">Attacker: {profile[0].attacker_name}</p>
+                                <p className="body-text item-defender">Defender: {profile[0].defender_name}</p>
+                                <p className="body-text item-gamemode">Gamemode: {profile[0].gamemode_name}</p>
+                                <p className="body-text item-availability">Availability: {profile[0].availability}</p>
+                                <p className="body-text item-discord">Discord: {profile[0].discord}</p>
+                                <p className="body-text item-bio">Bio: {profile[0].bio}</p>
                             </>
                             :
                             <>
@@ -215,7 +214,7 @@ function Profile() {
                 }
 
             </>
-        </>
+        </div>
     )
 }
 

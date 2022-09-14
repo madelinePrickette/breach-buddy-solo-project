@@ -2,8 +2,39 @@
     color:rgb(232, 232, 232);
     margin: 0;
     font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+}
+
+.header-text {
+    color:rgb(232, 232, 232);
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 40px;
 }
 
 .no-bull{
     list-style: none;
+}
+
+table {
+    padding-left: 5%;
+    width: 95%;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(46,47,52, 0.55); 
+}
+
+.header-container {
+    display: grid;
+    align-content: space-around;
+    justify-content: start;
+    align-items: start;
+    justify-items: start;
+    margin-left: 5%;
+    grid-template-columns: [col1] 1530px [col2] auto [col3];
+}
+
+.item-edit {
+    align-self: center;
 }
