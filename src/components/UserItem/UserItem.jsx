@@ -31,9 +31,13 @@ function UserItem({friend, editing}) {
     return(
         <>
             {editing?
-            <li key={friend.user_id_1}><h3 onClick={handleFriendClick} className='body-text'>{friend.username}</h3><button onClick={handleDeleteClick}>Unfriend</button></li>
+            <tr>
+                <td key={friend.user_id_1}><h3 onClick={handleFriendClick} className='body-text'>{friend.username}</h3><button onClick={handleDeleteClick}>Unfriend</button></td>
+            </tr>
             :
-            <li key={friend.user_id_1} onClick={handleFriendClick} className='body-text'>{friend.username}</li>
+            <tr>
+                <td key={friend.user_id_1} onClick={handleFriendClick} className='body-text'>{friend.username}</td>
+            </tr>
             }
         </>
     )

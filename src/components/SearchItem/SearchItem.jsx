@@ -17,7 +17,9 @@ function SearchItem({searchItem}) {
 
     return(
         <>
-            <li onClick={searchDetailClick} key={searchItem.id} className="body-text">{searchItem.username}</li>
+            <tr>
+                <td onClick={searchDetailClick} key={searchItem.id} className="body-text">{searchItem.username}</td>
+            </tr>
         </>
     )
 }

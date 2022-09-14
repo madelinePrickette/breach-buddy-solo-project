@@ -99,11 +99,13 @@ function Search() {
                 <button>Filter</button>
             </form>
             <h3 className='body-text'>Search Result:</h3>
-            <ul className='no-bull'>
-            {search.map( (searchItem) => 
-                <SearchItem key={searchItem.id} searchItem={searchItem}/>
-            )}
-            </ul>
+            <table>
+                <tbody>
+                    {search.map( (searchItem) => 
+                        <SearchItem key={searchItem.id} searchItem={searchItem}/>
+                    )}
+                </tbody>
+            </table>
         </>
     )
 }

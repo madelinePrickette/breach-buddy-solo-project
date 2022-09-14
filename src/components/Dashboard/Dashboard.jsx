@@ -37,19 +37,22 @@ function Dashboard() {
     console.log('friends:', friends);
     return(
         <>
-            <h3 className='body-text'>Dashboard</h3>
-            <h3 className='body-text'>List of friends:</h3>
-            {editing?
-            <button onClick={handleEditClick}>Done</button>
-            :
-            <button onClick={handleEditClick}>Edit</button>
-            }
+            <div className='header-container'>
+                <h2 className='header-text'>FRIENDS</h2>
+                {editing?
+                <button onClick={handleEditClick} className="item-edit">Done</button>
+                :
+                <button onClick={handleEditClick} className="item-edit">Edit</button>
+                }
+            </div>
             {friends[0] ?
-            <ul className='no-bull'>
-            {friends.map( (friend) => 
-                <UserItem key={friend.user_id_1} friend={friend} editing={editing}/>
-            )}
-            </ul>
+            <table>
+                <tbody>
+                    {friends.map( (friend) => 
+                        <UserItem key={friend.user_id_1} friend={friend} editing={editing}/>
+                    )}
+                </tbody>
+            </table>
             :
             <h3>You currently have no friends, go find some with the Find a Friend tab!</h3>
             }
