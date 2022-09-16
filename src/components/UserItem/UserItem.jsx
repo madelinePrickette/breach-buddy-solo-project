@@ -8,12 +8,17 @@ function UserItem({friend, editing}) {
     const history = useHistory();
 
     const handleFriendClick = () => {
-        history.push(`/userdetails/${friend.user_id_1}`);
-
+        
         dispatch({
             type: 'FETCH_OTHER_PROFILE',
             payload: {id: friend.user_id_1}
         })
+
+        setTimeout(() => {
+            history.push(`/userdetails/${friend.user_id_1}`);
+        }, 500);
+
+        
     }
 
     const handleDeleteClick = () => {

@@ -3,84 +3,81 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- * GET route template
+ * POST that runs a SELECT for filtering
  */
-router.get('/', (req, res) => {
+ router.post('/', (req, res) => {
   // GET route code here
-  const queryText =
-  `
-  SELECT * FROM "user"
-  WHERE "user".id != $1;
-  `;
+  console.log('req.body:', req.body)
+  console.log('rankId:', req.body.rankId)
+  console.log('gamemodeId:', req.body.gamemodeId)
 
-  const queryValues = [req.user.id];
+  if(req.body.rankId === 0 && req.body.gamemodeId === 0){
+    const queryText = 
+    `
+    SELECT * FROM "user";
+    `
+    pool.query(queryText)
+    .then( (result) => {
+      //console.log(result.rows);
+      res.send(result.rows)
+    }).catch( (err) => {
+      console.error('error in POST/SELECT in search.router.js', err);
+      res.sendStatus(500);
+    })
+  } else if(req.body.rankId != 0 && req.body.gamemodeId === 0) {
+    const queryText =
+    `
+    SELECT * FROM "user"
+    WHERE "user".rank_id = $1;
+    `
 
-  pool.query(queryText, queryValues)
-  .then( (result) => { //result will always be an array
-    res.send(result.rows);
-  }).catch( (err) => {
-    console.log('Error in search.router.js GET', err);
-    res.sendStatus(500);
-  })
-});
+    const queryValues = [req.body.rankId];
 
-/**
- * GET ALL AT THIS RANK
- */
- router.get('/r/:rankFilter', (req, res) => {
-  // GET route code here
-  console.log('in rank filter server');
-  const rankId = req.params.rankFilter;
-  console.log('rank id from req.params', rankId);
-  
-  const queryText =
-  `
-  SELECT "user".username, "user".id FROM "user"
-  WHERE "user".rank_id = $1;
-  `;
+    pool.query(queryText, queryValues)
+    .then( (result) => {
+      //console.log(result.rows);
+      res.send(result.rows)
+    }).catch( (err) => {
+      console.error('error in POST/SELECT in search.router.js', err);
+      res.sendStatus(500);
+    })
+  } else if(req.body.rankId === 0 && req.body.gamemodeId != 0) {
+    const queryText =
+    `
+    SELECT * FROM "user"
+    WHERE "user".gamemode_id = $1;
+    `
 
-  const queryValues = [rankId];
+    const queryValues = [req.body.gamemodeId];
 
-  pool.query(queryText, queryValues)
-  .then( (result) => { //result will always be an array with users who have the same rank
-    res.send(result.rows);
-  }).catch( (err) => {
-    console.log('Error in search.router.js GET', err);
-    res.sendStatus(500);
-  })
-});
+    pool.query(queryText, queryValues)
+    .then( (result) => {
+      //console.log(result.rows);
+      res.send(result.rows)
+    }).catch( (err) => {
+      console.error('error in POST/SELECT in search.router.js', err);
+      res.sendStatus(500);
+    })
+  } else if(req.body.rankId != 0 && req.body.gamemodeId != 0) {
+    const queryText =
+    `
+    SELECT * FROM "user"
+    WHERE "user".rank_id = $1 AND "user".gamemode_id = $2
+    `
 
-/**
- * GET ALL AT THIS GAMEMODE
- */
- router.get('/t/:gamemodeFilter', (req, res) => {
-  // GET route code here
-  console.log('in gamemode filter server');
-  const gamemodeId = req.params.gamemodeFilter;
-  console.log('gamemode id from req.params', gamemodeId);
-  
-  const queryText =
-  `
-  SELECT "user".username, "user".id FROM "user"
-  WHERE "user".gamemode_id = $1;
-  `;
+    const queryValues = [req.body.rankId, req.body.gamemodeId];
 
-  const queryValues = [gamemodeId];
-
-  pool.query(queryText, queryValues)
-  .then( (result) => { //result will always be an array with users who have the same rank
-    res.send(result.rows);
-  }).catch( (err) => {
-    console.log('Error in search.router.js GET', err);
-    res.sendStatus(500);
-  })
-});
-
-/**
- * POST route template
- */
-router.post('/', (req, res) => {
-  // POST route code here
+    pool.query(queryText, queryValues)
+    .then( (result) => {
+      //console.log(result.rows);
+      res.send(result.rows)
+    }).catch( (err) => {
+      console.error('error in POST/SELECT in search.router.js', err);
+      res.sendStatus(500);
+    })
+  } else {
+    console.log('WEIRD ERROR');
+  }
 });
 
 module.exports = router;

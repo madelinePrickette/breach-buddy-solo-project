@@ -12,19 +12,20 @@ function UserDetails() {
     const user = useSelector(store => store.user);
     const friendsList = useSelector(store => store.friendsReducer); 
     //loop through for checking if theyre a friend
+    let id = Number(useParams().id);
 
     const [friend, setFriend] = useState(false)
 
     useEffect(() => {
         // console.log('this users id:', otherUser.id);
-        friendCheck();
-        onRefresh(id)
+        friendCheck(id);
+        onRefresh(id);
     }, []);
 
-    let {id} = useParams()
-
     const onRefresh = (id) => {
-        console.log('YAHAYHAYHAY', id);
+
+        console.log('id from onRefresh:', id);
+
         dispatch({
             type: 'FETCH_OTHER_PROFILE',
             payload: {id: id}
@@ -34,16 +35,11 @@ function UserDetails() {
     const handleFriendClick = () => { //POST
         console.log('you and', otherUser.username, 'are now friends')
 
-        if((otherUser.id === friend.user_id_1) && (user.id === friend.user_id_2)){
-            //console.log('the user you clicked on is in the friends(user_user) table.', friend.user_id_1, '=', otherUser.id);
-            console.log('cannot add friend, you are already friends')
-            } else {
                 setFriend(!friend);
                 dispatch({
                     type: 'ADD_AS_FRIEND',
                     payload: otherUser.id
                 })
-            }
     }
 
     const handleUnfriendClick = () => { //DELETE
@@ -56,19 +52,33 @@ function UserDetails() {
         })
     }
 
-    const friendCheck = () => {
+    const friendCheck = (selectedId) => {
+        // console.log('SELECTED', selectedId);
         friendsList.map( (friend) => {
-            //console.log(friendsList); //list of friends with their and my id: user_id_1 => theirs. ---- user_id_2 => mine.
-            //console.log(friend.user_id_1); //List of all my friend's ids.
-            //console.log(otherUser.id); //The id of the person you clicked on. (squ1d1y is 14)
-            if((otherUser.id === friend.user_id_1) && (user.id === friend.user_id_2)){
-            //console.log('the user you clicked on is in the friends(user_user) table.', friend.user_id_1, '=', otherUser.id);
-            console.log('YOURE FRIENDS!!!!!!!!!');
-            setFriend(true);
-            } else {
-            console.log('not friends.');
-            setFriend(false);
+            console.log('SELECTED', selectedId);
+            // console.log('friendsList:', friendsList); //list of friends with their and my id: user_id_1 => theirs. ---- user_id_2 => mine.
+            console.log('friend.user_id_1:', friend.user_id_1); //List of all my friend's ids.
+            // console.log('otherUser info from reducer:', otherUser);
+            // console.log('otherUser.id', otherUser.id); //The id of the person you clicked on. (squ1d1y is 14)
+            // console.log('user.id',user.id);
+            // console.log('friend.user_id_2 (always us)', friend.user_id_2);
+            if( selectedId === friend.user_id_1 ){
+                console.log("THIS IS THE PERSON--------------------", friend.user_id_1);
+                // if it's THIS person
+                if((otherUser.id === friend.user_id_1) && (user.id === friend.user_id_2)){
+                    //console.log('the user you clicked on is in the friends(user_user) table.', friend.user_id_1, '=', otherUser.id);
+                    console.log('YOURE FRIENDS!!!!!!!!!');
+                    setFriend(true);
+                    
+                } else {
+                    console.log('not friends.');
+                    setFriend(false);
+                }
             }
+
+           
+
+            
         })
     }
 

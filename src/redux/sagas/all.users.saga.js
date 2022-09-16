@@ -1,27 +1,15 @@
 import axios from 'axios';
 import {takeEvery, put} from 'redux-saga/effects';
 
-function* fetchAll() {
-    const response = yield axios.get('/api/search')
-    yield put({type: 'SET_ALL_USERS', payload: response.data})
-}
-
-function* fetchRankFilter(action) {
+// this post is a get actually!
+function* fetchFilter(action) {
     console.log('action.payload:', action.payload);
-    const response = yield axios.get(`/api/search/r/${action.payload}`)
-    yield put({type: 'SET_ALL_USERS', payload: response.data})
-}
-
-function* fetchGamemodeFilter(action) {
-    console.log('action.payload:', action.payload);
-    const response = yield axios.get(`/api/search/t/${action.payload}`)
+    let response = yield axios.post(`/api/search`, action.payload)
     yield put({type: 'SET_ALL_USERS', payload: response.data})
 }
 
 function* allUsersSaga() {
-    yield takeEvery ('FETCH_SEARCH', fetchAll);
-    yield takeEvery ('FETCH_RANK_FILTER', fetchRankFilter);
-    yield takeEvery ('FETCH_GAMEMODE_FILTER', fetchGamemodeFilter);
+    yield takeEvery ('FETCH_FILTER', fetchFilter);
 }
 
 export default allUsersSaga;

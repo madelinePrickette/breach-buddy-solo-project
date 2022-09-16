@@ -6,77 +6,55 @@ import SearchItem from '../SearchItem/SearchItem';
 function Search() {
 
     useEffect(() => {
-        getSearch();
+        clearFilterChange();
     }, []);
 
     const dispatch = useDispatch();
     const history = useHistory();
     const search = useSelector(state => state.allUsersReducer);
 
-    const [rankFilter, setRankFilter] = useState('');
-    const [gamemodeFilter, setGamemodeFilter] = useState('');
+    const [filters, setFilters] = useState({rankId: 0, gamemodeId: 0});
 
-    const getSearch = () => {
+    const clearFilterChange = () => {
         //console.log('getting friends...')
+        setFilters({...filters, rankId: 0, gamemodeId: 0})
 
         dispatch({
-            type: 'FETCH_SEARCH'
-        })
+            type: 'FETCH_FILTER',
+            payload: {rankId: 0, gamemodeId: 0}
+        });
     }
 
     //handling interaction with rank filter
-    const rankFilterChange = (event) => {
+    const filterRankChange = (event) => {
         event.preventDefault();
-            setRankFilter(event.target.value);
+            setFilters({...filters, rankId: event.target.value});
     }
-    const handleRankFilter = (event) => {
+    //handling interaction with gamemode filter
+    const filterGamemodeChange = (event) => {
         event.preventDefault();
-        console.log('filtering by rank...')
-        console.log('rank id:', rankFilter);
-
-        if(rankFilter === 'Select a rank'){
-            alert('No rank selected');
-            return;
-        } else {
+            setFilters({...filters, gamemodeId: event.target.value});
+    }
+    const handleFilter = (event) => {
+        event.preventDefault();
+        console.log('filtering...')
+        console.log('Filters:', filters);
             //Dispatch this value to db
-            console.log('the filter worked!', rankFilter);
-            dispatch({
-                type: 'FETCH_RANK_FILTER',
-                payload: rankFilter
-            });
-        }
+
+        dispatch({
+            type: 'FETCH_FILTER',
+            payload: filters
+        });
     }
 
-        //handling interaction with gamemode filter
-        const gamemodeFilterChange = (event) => {
-            event.preventDefault();
-                setGamemodeFilter(event.target.value);
-        }
-        const handleGamemodeFilter = (event) => {
-            event.preventDefault();
-            console.log('filtering by gamemode...')
-            console.log('gamemode id:', gamemodeFilter);
-
-            if(gamemodeFilter === 'Select a gamemode'){
-                alert('No gamemode selected');
-                return;
-            } else {
-                //Dispatch this value to db
-                console.log('the filter worked!', gamemodeFilter);
-                dispatch({
-                    type: 'FETCH_GAMEMODE_FILTER',
-                    payload: gamemodeFilter
-                });
-            }
-        }
-
-    return(
+    console.log('filters:', filters);
+        return(
         <>
             <h3 className='body-text'>Find a Potential Friend!</h3>
-            <button onClick={getSearch}>Clear filters</button>
-            <form onSubmit={handleRankFilter}>
-                <select onChange={rankFilterChange}>
-                    <option>Select a rank</option>
+            <button onClick={clearFilterChange}>Clear filters</button>
+            <form onSubmit={handleFilter}>
+                <select onChange={filterRankChange}>
+                    <option value='0'>Select a rank</option>
                     <option value='1'>Unranked</option>
                     <option value='2'>Copper</option>
                     <option value='3'>Bronze</option>
@@ -88,9 +66,9 @@ function Search() {
                 </select>
                 <button>Filter</button>
             </form>
-            <form onSubmit={handleGamemodeFilter}>
-                <select onChange={gamemodeFilterChange}>
-                    <option>Select a gamemode</option>
+            <form onSubmit={handleFilter}>
+                <select onChange={filterGamemodeChange}>
+                    <option value='0'>Select a gamemode</option>
                     <option value='1'>All Modes</option>
                     <option value='2'>Unranked</option>
                     <option value='3'>Ranked</option>
