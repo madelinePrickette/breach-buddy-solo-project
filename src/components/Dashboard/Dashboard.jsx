@@ -15,6 +15,8 @@ function Dashboard() {
     const friends = useSelector(state => state.friendsReducer);
     const [editing, setEditing] = useState(false)
 
+    
+
     const getFriends = () => {
         //console.log('getting friends...')
 
