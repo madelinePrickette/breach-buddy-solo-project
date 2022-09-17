@@ -195,14 +195,14 @@ function Profile() {
                             <>
                                 <br></br>
                                 <img src={profile[0].picture} className="pfp item-pic"></img>
-                                <p className="body-text item-rank">Rank: {profile[0].rank_name}</p>
-                                <h1 className="body-text item-username">{profile[0].username}</h1>
-                                <p className="body-text item-attacker">Attacker: {profile[0].attacker_name}</p>
-                                <p className="body-text item-defender">Defender: {profile[0].defender_name}</p>
-                                <p className="body-text item-gamemode">Gamemode: {profile[0].gamemode_name}</p>
-                                <p className="body-text item-availability">Availability: {profile[0].availability}</p>
-                                <p className="body-text item-discord">Discord: {profile[0].discord}</p>
-                                <p className="body-text item-bio">Bio: {profile[0].bio}</p>
+                                <p className="body-text item-rank"><span className='light-gray-background'>Rank:</span> {profile[0].rank_name}</p>
+                                <h1 className="body-text item-username username-font-size">{profile[0].username}</h1>
+                                <p className="body-text item-attacker"><span className='light-gray-background'>Attacker:</span> {profile[0].attacker_name}</p>
+                                <p className="body-text item-defender"><span className='light-gray-background'>Defender:</span> {profile[0].defender_name}</p>
+                                <p className="body-text item-gamemode"><span className='light-gray-background'>Gamemode:</span> {profile[0].gamemode_name}</p>
+                                <p className="body-text item-availability"><span className='light-gray-background'>Availability:</span> {profile[0].availability}</p>
+                                <p className="body-text item-discord"><span className='light-gray-background'>Discord:</span> {profile[0].discord}</p>
+                                <p className="body-text item-bio"><span className='light-gray-background'>Bio:</span> {profile[0].bio}</p>
                             </>
                             :
                             <>
