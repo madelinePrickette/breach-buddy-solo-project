@@ -93,3 +93,140 @@
 .light-gray-background {
     color: #737477;
 }
+
+/* EDIT PROFILE */
+
+.edit-custom-select{
+    /* styling */
+    background-color: rgba(87,88,93,0.4);
+    border: #252527 solid 1px;
+    width: 450px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 5px;
+    color:rgb(209, 209, 209);
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    border-radius: 1px;
+  
+    /* reset */
+  
+    margin: 0;      
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.save-button-style{
+    background-color: #46ADE0;
+    border: none;
+    padding: 8px 16px 6px 16px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    border-radius: 1px;
+    width: 450px;
+}
+
+.edit-container{
+    display: grid;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+    justify-items: start;
+    grid-template-columns: [col1] 450px [col2];
+    grid-template-rows: [row1] 70px [row2] 70px [row3] 70px [row4] 70px [row5] 70px [row6] 70px [row7] 70px [row8] 70px [row9] 180px [row10] 70px [row11];
+    border-radius: 15px;
+}
+
+.edit-pic-item {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    align-self: center;
+    width: 440px;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    background-color: rgba(87,88,93,0.4);
+    border: #252527 solid 1px;
+    padding: 5px;
+}::placeholder{
+    color:rgb(209, 209, 209);
+}
+.edit-rank-item {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    align-self: center;
+}
+.edit-username-item {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    align-self: center;
+    font-family: 'Oswald', sans-serif;
+    color:rgb(223, 223, 223);
+    font-size: 40px
+}
+.edit-attacker-item {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+    align-self: center;
+}
+.edit-defender-item {
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
+    align-self: center;
+}
+.edit-gamemode-item {
+    grid-column: 1 / 2;
+    grid-row: 6 / 7;
+    align-self: center;
+}
+.edit-availability-item {
+    grid-column: 1 / 2;
+    grid-row: 7 / 8;
+    align-self: center;
+    width: 440px;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    background-color: rgba(87,88,93,0.4);
+    border: #252527 solid 1px;
+    padding: 5px;
+}
+.edit-discord-item {
+    grid-column: 1 / 2;
+    grid-row: 8 / 9;
+    align-self: center;
+    width: 440px;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    background-color: rgba(87,88,93,0.4);
+    border: #252527 solid 1px;
+    padding: 5px;
+}
+.edit-bio-label-item {
+    grid-column: 1 / 2;
+    grid-row: 9 / 10;
+    align-self: center;
+}
+.edit-bio-item {
+    grid-column: 1 / 2;
+    grid-row: 9 / 10;
+    align-self: center;
+    width: 100%;
+    height: 150px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    border: 2px solid rgb(232, 232, 232);
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    color: #14151B;
+}
+.edit-save-item {
+    grid-column: 1 / 2;
+    grid-row: 10 / 11;
+    align-self: center;
+}

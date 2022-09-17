@@ -146,14 +146,13 @@ function Profile() {
     }
 
     return (
-        <div className='container'>
+        <div>
             <>
                 {editing ?
-                    <>
-                        <button onClick={handleSaveClick}>Save</button>
-                        <input placeholder="picture url" onChange={handlePicUrlInput}/>
-                        <select onChange={handleRankSelection}>
-                            <option>Select a rank</option>
+                    <div className='edit-container'>
+                        <input placeholder="Picture Url" onChange={handlePicUrlInput} className='edit-pic-item'/>
+                        <select onChange={handleRankSelection} className='edit-custom-select edit-rank-item'>
+                            <option>Select Rank</option>
                             <option value='1'>Unranked</option>
                             <option value='2'>Copper</option>
                             <option value='3'>Bronze</option>
@@ -163,34 +162,35 @@ function Profile() {
                             <option value='7'>Diamond</option>
                             <option value='8'>Champion</option>
                         </select>
-                        <h2>{profile[0].username}</h2>
-                        <select onChange={handleAttackerSelection}>
-                            <option>Attacker Main</option>
+                        <h2 className='edit-username-item'>{profile[0].username}</h2>
+                        <select onChange={handleAttackerSelection} className='edit-custom-select edit-attacker-item'>
+                            <option>Select Attacker</option>
                             {attackers.map((attacker) =>
                                 <option key={attacker.id} value={attacker.id}>{attacker.attacker_name}</option>
                             )}
                         </select>
-                        <select onChange={handleDefenderSelection}>
-                            <option>Defender Main</option>
+                        <select onChange={handleDefenderSelection} className='edit-custom-select edit-defender-item'>
+                            <option>Select Defender</option>
                             {defenders.map((defender) =>
                                 <option key={defender.id} value={defender.id}>{defender.defender_name}</option>
                             )}
                         </select>
-                        <select onChange={handleGamemodeSelection}>
-                            <option>Select a gamemode</option>
+                        <select onChange={handleGamemodeSelection} className='edit-custom-select edit-gamemode-item'>
+                            <option>Select Gamemode</option>
                             <option value='1'>All Modes</option>
                             <option value='2'>Unranked</option>
                             <option value='3'>Ranked</option>
                             <option value='4'>Quick Match</option>
                         </select>
-                        <input placeholder="availability" onChange={handleAvailabilityInput}/>
-                        <input placeholder="discord name and #" onChange={handleDiscordInput}/>
-                        <label htmlFor='bio'>Bio:</label>
-                        <textarea name='bio' onChange={handleBioInput}></textarea>
-                    </>
+                        <input placeholder="Availability" onChange={handleAvailabilityInput} className='edit-availability-item'/>
+                        <input placeholder="Discord Name and #" onChange={handleDiscordInput} className='edit-discord-item'/>
+                        <label htmlFor='bio' className='edit-bio-label-item'>Bio</label>
+                        <textarea name='bio' onChange={handleBioInput} className='edit-bio-item'></textarea>
+                        <button onClick={handleSaveClick} className='edit-save-item save-button-style'>SAVE</button>
+                    </div>
                     :
-                    <>
-                        <button onClick={handleEditClick} className="item-edit button-style">Edit</button>
+                    <div  className='container'>
+                        <button onClick={handleEditClick} className="item-edit button-style">EDIT</button>
                         {profile[0] ?
                             <>
                                 <br></br>
@@ -209,7 +209,7 @@ function Profile() {
                                 <p>Please fill out a profile!</p>
                             </>
                         }
-                    </>
+                    </div>
 
                 }
 
