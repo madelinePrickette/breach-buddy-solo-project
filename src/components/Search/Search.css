@@ -7,3 +7,40 @@
 .no-bull {
     list-style: none;
 }
+
+.custom-select{
+        /* styling */
+        background-color: rgba(87,88,93,0.2);
+        border: #252527 solid 1px;
+        width: 350px;
+        display: inline-block;
+        font: inherit;
+        line-height: 1.5em;
+        padding: 5px;
+        color:rgb(232, 232, 232);
+        font-family: 'Oswald', sans-serif;
+        font-size: 20px;
+      
+        /* reset */
+      
+        margin: 0;      
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+}
+
+.inline-block {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.padding {
+    padding-left: 5%;
+    padding-bottom: 3%
+}
+
+.button-style{
+    background-color: green;
+}

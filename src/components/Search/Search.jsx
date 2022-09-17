@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import SearchItem from '../SearchItem/SearchItem';
+import './Search.css'
 
 function Search() {
 
@@ -50,10 +51,11 @@ function Search() {
     console.log('filters:', filters);
         return(
         <>
+            <div className='padding'>
             <h3 className='body-text'>Find a Potential Friend!</h3>
-            <button onClick={clearFilterChange}>Clear filters</button>
-            <form onSubmit={handleFilter}>
-                <select onChange={filterRankChange}>
+            <button onClick={clearFilterChange} className='inline-block button-style'>Clear filters</button>
+            <form onSubmit={handleFilter} className='inline-block'>
+                <select onChange={filterRankChange} className="custom-select">
                     <option value='0'>Select a rank</option>
                     <option value='1'>Unranked</option>
                     <option value='2'>Copper</option>
@@ -66,8 +68,8 @@ function Search() {
                 </select>
                 <button>Filter</button>
             </form>
-            <form onSubmit={handleFilter}>
-                <select onChange={filterGamemodeChange}>
+            <form onSubmit={handleFilter} className='inline-block'>
+                <select onChange={filterGamemodeChange} className="custom-select">
                     <option value='0'>Select a gamemode</option>
                     <option value='1'>All Modes</option>
                     <option value='2'>Unranked</option>
@@ -76,7 +78,7 @@ function Search() {
                 </select>
                 <button>Filter</button>
             </form>
-            <h3 className='body-text'>Search Result:</h3>
+            </div>
             <table>
                 <tbody>
                     {search.map( (searchItem) => 

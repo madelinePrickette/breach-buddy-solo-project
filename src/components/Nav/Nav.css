@@ -11,6 +11,7 @@
   text-decoration: none;
   font-family: 'Oswald', sans-serif;
   font-size: 30px;
+  margin-right: 25px;
 }
 
 .nav-title {
@@ -30,6 +31,7 @@
   padding: 24px 10px;
   text-decoration: none;
   font-size: 15px;
+  transition: transform .07s;
 
   /* these last two make the logout button in
   the nav bar look like another link */
@@ -42,4 +44,5 @@
   background-color: #46ADE0;
   color: black;
   filter: drop-shadow(0 0 0.90rem black);
+  transform: scale(1.07);
 }
