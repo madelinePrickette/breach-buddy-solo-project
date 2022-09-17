@@ -52,7 +52,7 @@ function Search() {
         return(
         <>
             <div className='padding'>
-            <h3 className='body-text'>Find a Potential Friend!</h3>
+            <h3 className='body-text'>Search for Users</h3>
             <button onClick={clearFilterChange} className='inline-block button-style'>Clear filters</button>
             <form onSubmit={handleFilter} className='inline-block'>
                 <select onChange={filterRankChange} className="custom-select">
@@ -66,7 +66,7 @@ function Search() {
                     <option value='7'>Diamond</option>
                     <option value='8'>Champion</option>
                 </select>
-                <button>Filter</button>
+                <button className='button-style button-margin-left'>Filter</button>
             </form>
             <form onSubmit={handleFilter} className='inline-block'>
                 <select onChange={filterGamemodeChange} className="custom-select">
@@ -76,7 +76,7 @@ function Search() {
                     <option value='3'>Ranked</option>
                     <option value='4'>Quick Match</option>
                 </select>
-                <button>Filter</button>
+                <button className='button-style button-margin-left'>Filter</button>
             </form>
             </div>
             <table>

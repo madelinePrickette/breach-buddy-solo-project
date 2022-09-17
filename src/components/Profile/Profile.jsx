@@ -190,7 +190,7 @@ function Profile() {
                     </>
                     :
                     <>
-                        <button onClick={handleEditClick} className="item-edit">Edit</button>
+                        <button onClick={handleEditClick} className="item-edit button-style">Edit</button>
                         {profile[0] ?
                             <>
                                 <br></br>

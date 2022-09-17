@@ -42,9 +42,9 @@ function Dashboard() {
             <div className='header-container'>
                 <h2 className='header-text'>FRIENDS</h2>
                 {editing?
-                <button onClick={handleEditClick} className="item-edit">Done</button>
+                <button onClick={handleEditClick} className="item-edit button-style">Done</button>
                 :
-                <button onClick={handleEditClick} className="item-edit">Edit</button>
+                <button onClick={handleEditClick} className="item-edit button-style">Edit</button>
                 }
             </div>
             {friends[0] ?
