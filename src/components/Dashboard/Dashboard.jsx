@@ -56,7 +56,7 @@ function Dashboard() {
                 </tbody>
             </table>
             :
-            <h3>You currently have no friends, go find some with the Find a Friend tab!</h3>
+            <h3 className='body-text dashboard-padding-left'>You currently have no friends. You can make new friends with the Find a Friend tab.</h3>
             }
         </>
     )

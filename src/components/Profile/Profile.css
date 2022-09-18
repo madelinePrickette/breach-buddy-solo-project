@@ -26,7 +26,7 @@
     align-items: center;
     justify-items: start;
     grid-template-columns: [col1] 240px [col2] 240px [col3] 500px [col4] auto [col5];
-    grid-template-rows: [row1] 25px [row2] auto [row3] 50px [row4] 50px [row5] 50px [row6] 500px [row7];
+    grid-template-rows: [row1] 25px [row2] auto [row3] 75px [row4] 50px [row5] 50px [row6] 500px [row7];
     border-radius: 15px;
 }
 
@@ -50,6 +50,9 @@
 .item-username {
     grid-column: 2 / 5;
     grid-row: 3 / 4;
+    background-color: rgba(115,116,119,0.5);
+    padding: 0px 15px 5px 15px;
+    border-radius: 3px;
 }
 
 .item-attacker {
