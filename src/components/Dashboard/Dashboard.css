@@ -38,3 +38,7 @@ tbody tr:nth-child(even) {
 .item-edit {
     align-self: center;
 }
+
+.dashboard-padding-left{
+    padding-left: 5%;
+}
