@@ -91,27 +91,28 @@ function UserDetails() {
     
 
     return(
-        <>
+        <div className='other-container'>
             {friend ?
             <>
-                <button onClick={handleUnfriendClick}>Unfriend</button><p className='body-text'>you are friends</p>
+                <button onClick={handleUnfriendClick} className='other-button-style'>Unfriend</button><p className='other-body-text friend-not-friend'>you are friends</p>
             </>
             :
             <>
-                <button onClick={handleFriendClick}>Friend</button><p className='body-text'>you are NOT friends</p>
+                <button onClick={handleFriendClick} className='other-button-style'>Friend</button><p className='other-body-text friend-not-friend'>you are NOT friends</p>
             </>
             }
             
             <br></br>
-            <img src={otherUser.picture} className="pfp"></img>
-            <p className='body-text'>Rank: {otherUser.rank_name}</p>
-            <h2 className='body-text'>{otherUser.username}</h2>
-            <p className='body-text'>Attacker: {otherUser.defender_name}</p>
-            <p className='body-text'>Gamemode: {otherUser.gamemode_name}</p>
-            <p className='body-text'>Availability: {otherUser.availability}</p>
-            <p className='body-text'>Discord: {otherUser.discord}</p>
-            <p className='body-text'>Bio: {otherUser.bio}</p>
-        </>
+            <img src={otherUser.picture} className="other-pfp other-item-pic"></img>
+            <p className='other-body-text other-item-rank'><span className='other-light-gray-background'>Rank:</span> {otherUser.rank_name}</p>
+            <h1 className='other-body-text other-item-username'>{otherUser.username}</h1>
+            <p className='other-body-text other-item-attacker'><span className='other-light-gray-background'>Attacker:</span> {otherUser.attacker_name}</p>
+            <p className='other-body-text other-item-defender'><span className='other-light-gray-background'>Defender:</span> {otherUser.defender_name}</p>
+            <p className='other-body-text other-item-gamemode'><span className='other-light-gray-background'>Gamemode:</span> {otherUser.gamemode_name}</p>
+            <p className='other-body-text other-item-availability'><span className='other-light-gray-background'>Availability:</span> {otherUser.availability}</p>
+            <p className='other-body-text other-item-discord'><span className='other-light-gray-background'>Discord:</span> {otherUser.discord}</p>
+            <p className='other-body-text other-item-bio'><span className='other-light-gray-background'></span> {otherUser.bio}</p>
+        </div>
     )
 }
 

@@ -202,7 +202,7 @@ function Profile() {
                                 <p className="body-text item-gamemode"><span className='light-gray-background'>Gamemode:</span> {profile[0].gamemode_name}</p>
                                 <p className="body-text item-availability"><span className='light-gray-background'>Availability:</span> {profile[0].availability}</p>
                                 <p className="body-text item-discord"><span className='light-gray-background'>Discord:</span> {profile[0].discord}</p>
-                                <p className="body-text item-bio"><span className='light-gray-background'>Bio:</span> {profile[0].bio}</p>
+                                <p className="body-text item-bio"><span className='light-gray-background'></span> {profile[0].bio}</p>
                             </>
                             :
                             <>

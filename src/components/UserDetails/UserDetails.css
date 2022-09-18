@@ -1,15 +1,104 @@
-.pfp {
-    max-width: 250px;
+.other-pfp {
+    max-width: 220px;
+    min-width: 220px;
     border-radius: 50%;
     border: 2px rgb(232, 232, 232) solid;
 }
 
-.inline-block {
+.other-inline-block {
     display: inline-block;
 }
 
-.body-text {
+.other-body-text {
     color:rgb(232, 232, 232);
     margin: 0;
     font-family: 'Oswald', sans-serif;
+}
+
+.other-username-font-size {
+    font-size: 40px;
+}
+
+.other-container {
+    display: grid;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+    justify-items: start;
+    grid-template-columns: [col1] 240px [col2] 240px [col3] 500px [col4] auto [col5];
+    grid-template-rows: [row1] 25px [row2] auto [row3] 50px [row4] 50px [row5] 50px [row6] 500px [row7];
+    border-radius: 15px;
+    font-size: 25px;
+}
+
+.friend-unfriend-button {
+    
+}
+
+.friend-not-friend {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.other-item-pic {
+    grid-column: 1 / 3;
+    grid-row: 1 / 4;
+}
+
+.other-item-rank {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    align-self: end;
+    font-size: 20px;
+}
+
+.other-item-username {
+    grid-column: 2 / 5;
+    grid-row: 3 / 4;
+}
+
+.other-item-attacker {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+    align-self: end;
+}
+
+.other-item-defender {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+    align-self: end;
+}
+
+.other-item-gamemode {
+    grid-column: 3 / 5;
+    grid-row: 4 / 5;
+    align-self: end;
+}
+
+.other-item-availability {
+    grid-column: 1 / 4;
+    grid-row: 5 / 6;
+    align-self: start;
+}
+
+.other-item-discord {
+    grid-column: 3 / 4;
+    grid-row: 5 / 6;
+    align-self: start;
+}
+
+.other-item-bio {
+    grid-column: 1 / 5;
+    grid-row: 6 / 7;
+    align-self: start;
+    background-color: rgba(59, 60, 65, 0.5);
+    font-size: 20px;
+    width: 100%;
+    height:500px;
+    padding-left: 5px;
+}
+
+.other-light-gray-background {
+    color: #737477;
+    font-size: 20px;
 }
