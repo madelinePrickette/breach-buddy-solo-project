@@ -14,9 +14,9 @@ import Nav from '../Nav/Nav';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
+// import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
+// import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
@@ -45,7 +45,7 @@ function App() {
         {/* this is a component */}
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/home" />
+          <Redirect exact from="/" to="/login" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route path="/about" exact >
@@ -57,9 +57,9 @@ function App() {
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-          <ProtectedRoute path="/user" exact >
+          <ProtectedRoute path="/profile" exact >
             {/* // logged in shows UserPage else shows LoginPage */}
-            <UserPage />
+            <Profile />
           </ProtectedRoute>
 
           <ProtectedRoute path="/info" exact >
@@ -131,10 +131,10 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/dashboard" />
               :
               // Otherwise, show the Landing page
-              <LandingPage />
+              <LoginPage />
             }
           </Route>
 
