@@ -5,6 +5,7 @@ function SearchItem({searchItem}) {
 
     const dispatch = useDispatch();
     const history = useHistory();
+    const user = useSelect(store => store.user);
 
     const searchDetailClick = () => {
         history.push(`/userdetails/${searchItem.id}`);

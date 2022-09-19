@@ -13,6 +13,7 @@ function Search() {
     const dispatch = useDispatch();
     const history = useHistory();
     const search = useSelector(state => state.allUsersReducer);
+    const user = useSelector(state => state.user);
 
     const [filters, setFilters] = useState({rankId: 0, gamemodeId: 0});
 
@@ -82,7 +83,7 @@ function Search() {
             <table>
                 <tbody>
                     {search.map( (searchItem) => 
-                        <SearchItem key={searchItem.id} searchItem={searchItem}/>
+                                <SearchItem key={searchItem.id} searchItem={searchItem}/>
                     )}
                 </tbody>
             </table>
