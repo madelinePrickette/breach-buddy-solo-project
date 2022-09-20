@@ -46,3 +46,11 @@
   filter: drop-shadow(0 0 0.90rem black);
   transform: scale(1.07);
 }
+
+.p-design-nav {
+  font-style: italic;
+  margin-top: 0px;
+  margin-left: 145px;
+  margin-bottom: 0px;
+  color: #f2f2f2;
+}
