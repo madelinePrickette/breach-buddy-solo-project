@@ -160,9 +160,15 @@
     background-color: rgba(87,88,93,0.4);
     border: #252527 solid 1px;
     padding: 5px;
+    color:rgb(209, 209, 209)
 }::placeholder{
     color:rgb(209, 209, 209);
 }
+input:focus {
+    color:rgb(209, 209, 209)
+}
+
+
 .edit-rank-item {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
@@ -201,6 +207,7 @@
     background-color: rgba(87,88,93,0.4);
     border: #252527 solid 1px;
     padding: 5px;
+    color:rgb(209, 209, 209)
 }
 .edit-discord-item {
     grid-column: 1 / 2;
@@ -212,6 +219,7 @@
     background-color: rgba(87,88,93,0.4);
     border: #252527 solid 1px;
     padding: 5px;
+    color:rgb(209, 209, 209)
 }
 .edit-bio-label-item {
     grid-column: 1 / 2;
