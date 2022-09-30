@@ -6,7 +6,7 @@ import profileReducer from './profile.reducer';
 import attackerReducer from './attacker.reducer';
 import defenderReducer from './defender.reducer';
 import friendsReducer from './friends.reducer';
-import otherUserReducer from './other.user.reducer.js';
+import otherUserReducer from './Other.user.reducer.js';
 import allUsersReducer from './all.users.reducer';
 
 // rootReducer is the primary reducer for our entire project
